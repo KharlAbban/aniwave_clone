@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#layout-footer {
+    background: url("/footer_wallpaper.jpeg") no-repeat center;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.85);
+    background-blend-mode: multiply;
+}

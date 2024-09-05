@@ -1,0 +1,38 @@
+import {useEffect, useState} from "react"
+import { AnimeSchedule, JustCompleted, NewAdded, NewRelease, ReadMangaAd, RecentlyUpdated, RecommendSite, TopAnime, TrendingAnimeSlideShow } from '../components'
+import { fetchFromAPI } from "../utils/fetchAnimeInfo";
+
+const AnimeFeed = () => {
+    const [animeFeedInfo, setanimeFeedInfo] = useState(null);
+    console.log(animeFeedInfo);
+    
+    useEffect(() => {
+        fetchFromAPI("").then(response => setanimeFeedInfo(response))
+    }, [])
+
+    if (!animeFeedInfo) return <div className="w-full minh-h-[80vh] flex items-center justify-center text-2xl font-semibold">Loading anime info...</div>
+    
+  return (
+    <div className='p-0'>
+        <TrendingAnimeSlideShow />
+        <div className='flex justify-between mt-8'>
+            <div className='w-3/5'>
+                <RecommendSite />
+                <RecentlyUpdated />
+                <ReadMangaAd />
+                <div className="my-6 flex justify-between">
+                    <NewRelease />
+                    <NewAdded />
+                    <JustCompleted />
+                </div>
+                <AnimeSchedule />
+            </div>
+            <div className='w-2/5 border-l border-l-white'>
+                <TopAnime />
+            </div>
+        </div>
+    </div>
+  )
+}
+
+export default AnimeFeed
