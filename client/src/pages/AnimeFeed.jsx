@@ -4,17 +4,16 @@ import { fetchFromAPI } from "../utils/fetchAnimeInfo";
 
 const AnimeFeed = () => {
     const [animeFeedInfo, setanimeFeedInfo] = useState(null);
-    console.log(animeFeedInfo);
     
     useEffect(() => {
         fetchFromAPI("").then(response => setanimeFeedInfo(response))
     }, [])
 
-    if (!animeFeedInfo) return <div className="w-full minh-h-[80vh] flex items-center justify-center text-2xl font-semibold">Loading anime info...</div>
+    if (!animeFeedInfo) return <div className="w-full min-h-[80vh] flex items-center justify-center text-2xl font-semibold">Loading anime info...</div>
     
   return (
-    <div className='p-0'>
-        <TrendingAnimeSlideShow />
+    <div className="w-full overflow-x-hidden">
+        <TrendingAnimeSlideShow trendingAnimes={animeFeedInfo.spotLightAnimes} />
         <div className='flex justify-between mt-8'>
             <div className='w-3/5'>
                 <RecommendSite />

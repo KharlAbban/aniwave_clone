@@ -1,9 +1,9 @@
 import { FaCircle } from "react-icons/fa";
-import { trendingAnimes } from "../utils/constants"
+// import { trendingAnimes } from "../utils/constants"
 import SlideShowCard from "./SlideShowCard";
 import { useEffect, useState } from "react";
 
-const TrendingAnimeSlideShow = () => {
+const TrendingAnimeSlideShow = ({trendingAnimes}) => {
   const [currSlideIdx, setCurrSlideIdx] = useState("slide0");
 
   const goToSlide = (slideIdx) => {
