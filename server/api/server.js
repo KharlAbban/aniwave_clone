@@ -10,7 +10,6 @@ const baseUrl = "https://api-anime-rouge.vercel.app/aniwatch/";
 app.use(cors({
     // origin: "http://localhost:5173",
     origin: "https://aniwave-clone.vercel.app",
-    credentials: true
 }));
 app.use(morgan("dev"));
 app.use(express.json());
@@ -20,7 +19,11 @@ app.listen(port, (req, res) => {
     console.log(`Server started at port ${port}`);
 });
 
-app.get("/", async (req, res) => {
+app.get("/", (req, res) => {
+    res.json({ message: "Welcome to the AniWave Clone API!" });
+})
+
+app.get("/anime", async (req, res) => {
     try {
         const urlToFetch = req.query.urlToFetch.replaceAll('"',"") || '';
         const extraParams = JSON.parse(req.query.extraParams) || {};
