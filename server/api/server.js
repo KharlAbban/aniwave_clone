@@ -40,3 +40,5 @@ app.get("/anime", async (req, res) => {
         console.error(error.message);
     }
 });
+
+module.exports = app;
