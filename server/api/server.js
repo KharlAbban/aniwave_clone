@@ -7,7 +7,10 @@ const app = express();
 const port = 8080;
 const baseUrl = "https://api-anime-rouge.vercel.app/aniwatch/";
 
-app.use(cors());
+app.use(cors({
+    origin: "https://aniwave-clone.vercel.app/",
+    credentials: true
+}));
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
