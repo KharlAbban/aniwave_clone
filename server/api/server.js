@@ -8,7 +8,8 @@ const port = 8080;
 const baseUrl = "https://api-anime-rouge.vercel.app/aniwatch/";
 
 app.use(cors({
-    origin: "https://aniwave-clone.vercel.app/",
+    // origin: "http://localhost:5173",
+    origin: "https://aniwave-clone.vercel.app",
     credentials: true
 }));
 app.use(morgan("dev"));
@@ -21,8 +22,8 @@ app.listen(port, (req, res) => {
 
 app.get("/", async (req, res) => {
     try {
-        const urlToFetch = req.query.urlToFetch.replaceAll('"',"");
-        const extraParams = JSON.parse(req.query.extraParams);
+        const urlToFetch = req.query.urlToFetch.replaceAll('"',"") || '';
+        const extraParams = JSON.parse(req.query.extraParams) || {};
         
         const {data} = await axios.get(`${baseUrl}${urlToFetch}`, {
             params: {

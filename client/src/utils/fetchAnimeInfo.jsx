@@ -6,7 +6,7 @@ const proxyUrlDev = "http://localhost:8080/";
 export const fetchFromAPI = async (url, extraParams) => {
     const {data} = await axios.get(proxyUrl, {
         params: {
-            urlToFetch: JSON.stringify(url),
+            urlToFetch: JSON.stringify(url) || "",
             extraParams: JSON.stringify(extraParams || {})
         },
     });

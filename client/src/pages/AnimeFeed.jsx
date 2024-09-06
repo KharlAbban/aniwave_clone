@@ -6,7 +6,7 @@ const AnimeFeed = () => {
     const [animeFeedInfo, setanimeFeedInfo] = useState(null);
     
     useEffect(() => {
-        fetchFromAPI("").then(response => setanimeFeedInfo(response))
+        fetchFromAPI().then(response => setanimeFeedInfo(response))
     }, [])
 
     if (!animeFeedInfo) return <div className="w-full min-h-[80vh] flex items-center justify-center text-2xl font-semibold">Loading anime info...</div>
