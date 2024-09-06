@@ -3,13 +3,14 @@ import { AnimeSchedule, JustCompleted, NewAdded, NewRelease, ReadMangaAd, Recent
 import { fetchFromAPI } from "../utils/fetchAnimeInfo";
 
 const AnimeFeed = () => {
-    const [animeFeedInfo, setanimeFeedInfo] = useState(null);
+    const [animeFeedInfo, setAnimeFeedInfo] = useState(null);
+    const [errorMsg, setErrorMsg] = useState("Loading anime info...");
     
     useEffect(() => {
-        fetchFromAPI().then(response => setanimeFeedInfo(response))
-    }, [])
+        fetchFromAPI().then(response => setAnimeFeedInfo(response)).catch(errorMsg => setErrorMsg(`${errorMsg.message}!`));
+    }, []);
 
-    if (!animeFeedInfo) return <div className="w-full min-h-[80vh] flex items-center justify-center text-2xl font-semibold">Loading anime info...</div>
+    if (!animeFeedInfo) return <div className="w-full min-h-[80vh] flex items-center justify-center text-4xl font-semibold">{errorMsg}</div>
     
   return (
     <div className="w-full overflow-x-hidden">

@@ -3,13 +3,28 @@ import axios from "axios";
 const proxyUrl = "https://aniwave-clone-cors-proxy.vercel.app/anime";
 const proxyUrlDev = "http://localhost:8080/anime";
 
-export const fetchFromAPI = async (url, extraParams) => {
-    const {data} = await axios.get(proxyUrl, {
-        params: {
-            urlToFetch: JSON.stringify(url) || "",
-            extraParams: JSON.stringify(extraParams || {})
-        },
-    });
+const axiosRequest = axios.create({
+    withCredentials: true,
+    baseURL: proxyUrl,
+    headers: {
+        "Content-Type": "application/json",
+    }
+});
 
-    return data;
+export const fetchFromAPI = async (url, extraParams) => {
+    try {
+        const {data} = await axiosRequest.get("", {
+            params: {
+                urlToFetch: url || "",
+                extraParams: JSON.stringify(extraParams || {})
+            },
+        });
+
+        return data;
+
+    } catch(error) {
+        console.error(error.message);
+        throw new Error(error.message);
+    }
+
 }
