@@ -1,11 +1,11 @@
 import { FaMicrophone, FaPlay } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
-const SlideShowCard = ({trendingAnime, slideIndex}) => {
+const SlideShowCard = ({trendingAnime, slidesLength}) => {
     const {name, id, img, quality, category, releasedDay, description} = trendingAnime;
 
   return (
-    <div id={`slide${slideIndex}`} className="w-full flex justify-between carousel-item">
+    <div className="w-full flex justify-between flex-shrink-0" style={{width: `${100/slidesLength}%`}}>
         <div className="w-full h-full flex flex-col justify-center px-5">
         <h1 className="font-semibold text-5xl mb-4">{name.length > 55 ? `${name.slice(0,55)}...` : name}</h1>
         <div className="flex items-center gap-2 my-1">

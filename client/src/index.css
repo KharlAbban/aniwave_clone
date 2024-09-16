@@ -8,3 +8,23 @@
     background-color: rgba(0, 0, 0, 0.85);
     background-blend-mode: multiply;
 }
+.animeSubInfo p::before {
+    position: absolute;
+    z-index: 0;
+    content: "";
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transform: skewX(345deg);
+}
+.animeSubInfo p:nth-child(1)::before {
+    @apply bg-primPurple;
+    left: 5px;
+}
+.animeSubInfo p:nth-child(2)::before {
+    @apply bg-darkyellow
+}
+.animeSubInfo p:nth-child(3)::before {
+    @apply bg-gray-400
+}

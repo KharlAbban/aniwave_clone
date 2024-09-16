@@ -7,7 +7,7 @@ const AnimeFeed = () => {
     const [errorMsg, setErrorMsg] = useState("Loading anime info...");
     
     useEffect(() => {
-        fetchFromAPI().then(response => setAnimeFeedInfo(response)).catch(errorMsg => setErrorMsg(`${errorMsg.message}!`));
+        fetchFromAPI().then(response => setAnimeFeedInfo(response)).catch(errorMsg => setErrorMsg(`${errorMsg.message}! Please refresh!`));
     }, []);
 
     if (!animeFeedInfo) return <div className="w-full min-h-[80vh] flex items-center justify-center text-4xl font-semibold">{errorMsg}</div>
@@ -15,20 +15,20 @@ const AnimeFeed = () => {
   return (
     <div className="w-full overflow-x-hidden">
         <TrendingAnimeSlideShow trendingAnimes={animeFeedInfo.spotLightAnimes} />
-        <div className='flex justify-between mt-8'>
-            <div className='w-3/5'>
+        <div className='flex justify-between mt-2 relative px-2 max-xl:flex-col'>
+            <div className='w-full xl:w-3/4 ps-1 pe-3'>
                 <RecommendSite />
-                <RecentlyUpdated />
+                <RecentlyUpdated updatedAnimes={animeFeedInfo.latestEpisodes} />
                 <ReadMangaAd />
-                <div className="my-6 flex justify-between">
+                <div className="my-6 flex justify-around">
                     <NewRelease />
                     <NewAdded />
                     <JustCompleted />
                 </div>
                 <AnimeSchedule />
             </div>
-            <div className='w-2/5 border-l border-l-white'>
-                <TopAnime />
+            <div className='xl:w-1/4 w-full'>
+                <TopAnime topAnime={animeFeedInfo.top10Animes} />
             </div>
         </div>
     </div>

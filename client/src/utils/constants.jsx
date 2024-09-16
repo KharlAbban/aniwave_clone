@@ -1,4 +1,5 @@
 import { FaBook, FaPlay, FaRandom } from "react-icons/fa";
+import { FaFacebook, FaFacebookMessenger, FaReddit, FaX } from "react-icons/fa6";
 
 export const menu = [
   { name: 'Watch2gether', icon: <FaPlay size={18} />, linkTo: "/watch2gether"},

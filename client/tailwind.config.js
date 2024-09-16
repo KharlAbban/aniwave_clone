@@ -10,7 +10,8 @@ export default {
         primBlack: "#0e0e0e",
         lightBlack: "#1c1c1c",
         primPurple: "#5a2e96",
-        lightRed: "#dd3544"
+        lightRed: "#dd3544",
+        darkyellow: "#8f7003"
       }
     },
   },
