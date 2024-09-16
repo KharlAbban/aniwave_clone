@@ -5,7 +5,7 @@ const proxyUrlDev = "http://localhost:8080/anime";
 
 const axiosRequest = axios.create({
     withCredentials: true,
-    baseURL: proxyUrlDev,
+    baseURL: proxyUrl,
     headers: {
         "Content-Type": "application/json",
     }
