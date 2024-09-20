@@ -20,10 +20,10 @@ const AnimeFeed = () => {
                 <RecommendSite />
                 <RecentlyUpdated updatedAnimes={animeFeedInfo.latestEpisodes} />
                 <ReadMangaAd />
-                <div className="my-6 flex justify-around">
-                    <NewRelease />
-                    <NewAdded />
-                    <JustCompleted />
+                <div className="my-6 flex gap-2 justify-around">
+                    <NewRelease newReleaseAnimes={animeFeedInfo.featuredAnimes.topAiringAnimes} />
+                    <NewAdded newAnimes={animeFeedInfo.featuredAnimes.mostPopularAnimes} />
+                    <JustCompleted completedAnimes={animeFeedInfo.featuredAnimes.latestCompletedAnimes} />
                 </div>
                 <AnimeSchedule />
             </div>

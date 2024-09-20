@@ -2,8 +2,8 @@ import React from 'react'
 
 const ReadMangaAd = () => {
   return (
-    <div>
-      <img src="/anilab.gif" alt="Read some manga, .... anywhere" />
+    <div className='flex items-center justify-center my-3 w-full'>
+      <img src="/anilab.gif" className='h-24' alt="Read some manga, .... anywhere" />
     </div>
   )
 }

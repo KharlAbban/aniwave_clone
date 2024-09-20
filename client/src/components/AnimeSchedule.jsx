@@ -2,7 +2,7 @@ import React from 'react'
 
 const AnimeSchedule = () => {
   return (
-    <div>AnimeSchedule</div>
+    <div className='w-full p-6 bg-lightBlack rounded'>AnimeSchedule</div>
   )
 }
 

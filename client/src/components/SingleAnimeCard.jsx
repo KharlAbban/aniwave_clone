@@ -36,8 +36,10 @@ const SingleAnimeCard = ({animeItem}) => {
         </Link>
 
         {/* Tooltip div */}
-        <div className="absolute top-0 z-[999] left-full hidden peer-hover:block px-2 py-4 bg-primPurple w-[310px] h-[278px]">
-            {id}
+        <div className="absolute top-1/4 z-[999] left-[90%] hidden hover:block peer-hover:block ps-4">
+            <div className="bg-primPurple py-2 px-1">
+                {id}
+            </div>
         </div>
         
         {/* Anime name */}
@@ -49,3 +51,6 @@ const SingleAnimeCard = ({animeItem}) => {
 }
 
 export default SingleAnimeCard
+
+
+// w-[310px] h-[278px]
